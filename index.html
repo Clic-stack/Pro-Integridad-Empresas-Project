@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mockup v3 — Pro Integridad Empresas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF; --slate:#37474F; --slate-soft:#455a64; --orange:#FF8800; --orange-dark:#e67a00;
+    --green:#2E8B67; --green-text:#22795A; --green-dark:#175A3F; --green-soft:#e6f3ee; --text:#263238; --text-muted:#4A5A62; --border:#e3e7e8;
+    --turquoise:#2fd0a0; --turquoise-border:#16966E; --blue:#3a5998; --blue-btn:#33507E; --lavender:#a79bd9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.55;}
+  h1,h2,h3{font-family:'Montserrat',sans-serif; margin:0; color:var(--slate); letter-spacing:-0.01em;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+  .banner{background:var(--slate); color:#fff; padding:10px 24px; font-size:13px; text-align:center;}
+  header.site{padding:26px 0 6px;}
+  .brand{display:flex; align-items:center; gap:14px;}
+  .brand-mark{width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg,var(--turquoise),var(--lavender)); flex:none;}
+  .brand-name{font-size:14px; color:var(--text-muted); font-weight:500;}
+
+  /* progress fill bar per section */
+  section{position:relative; padding:34px 0 34px 18px; border-top:1px solid var(--border);}
+  .fill-bar{position:absolute; left:0; top:0; width:3px; height:100%; background:var(--border); border-radius:3px; overflow:hidden;}
+  .fill-bar i{display:block; width:100%; height:0%; background:linear-gradient(var(--turquoise-border),var(--blue)); transition:height .1s linear;}
+
+  .hero{display: grid; grid-template-columns: 60% 40%; gap: 40px; align-items: center; padding: 32px 0 8px;}
+  .hero-copy{flex:1; min-width:280px;}
+  .hero h1{font-size:30px; line-height:1.2; margin-bottom:12px; text-align:left;}
+  .hero p{color:var(--text-muted); font-size:15.5px; max-width:48ch; text-align:left;}
+  .hero-mark{display: flex; justify-content: center;}
+  .hero-mark img{width: 100%; height: auto; object-fit: contain;}
+
+  .cta-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:26px 0 8px;}
+  @media(max-width:640px){.cta-row{grid-template-columns:1fr;}}
+  .cta-card{
+    border:1.5px solid var(--border); border-radius:14px; padding:20px; background:#fff;
+    display:flex; flex-direction:column; gap:8px; transition:box-shadow .2s, border-color .2s, transform .2s;
+    cursor:pointer;
+  }
+  .cta-card:hover, .cta-card:focus-within{
+    border-color:var(--turquoise-border);
+    box-shadow:0 10px 22px -8px rgba(47,208,160,0.45);
+    transform:translateY(-2px);
+  }
+  .cta-tag{
+    display:inline-flex; align-items:center; gap:6px; background:#eef1f2; border-radius:20px;
+    padding:6px 14px; font-weight:700; font-size:13px; color:var(--slate); width:fit-content;
+  }
+  .cta-card h3{font-size:16px;} .cta-card p{color:var(--text-muted); font-size:13.5px; margin:0;}
+  .cta-btn{
+    margin-top:auto; background:var(--orange); color:var(--slate); border:none; border-radius:9px; padding:10px 16px;
+    font-family:'Inter',sans-serif; font-weight:700; font-size:14px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:6px; transition:background .25s, color .25s;
+  }
+  .cta-btn:hover, .cta-btn:focus-visible{ background:var(--blue-btn); color:#fff; outline:none; }
+  .cta-btn .arrow{display:inline-block; transition:transform .2s;}
+  .cta-btn:hover .arrow, .cta-btn:focus-visible .arrow{ animation:bounceX .6s ease infinite; }
+  @keyframes bounceX{ 0%,100%{transform:translateX(0);} 50%{transform:translateX(4px);} }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible, .cta-card:focus-within{
+    outline:2px solid var(--blue); outline-offset:2px;
+  }
+
+  .section-head{margin-bottom:16px;}
+  .section-head h2{font-size:21px; text-align:left;}
+
+  .qwi p, .qwi li{ text-align:left; }
+  .qwi h4{font-size:14px; color:var(--slate); margin:16px 0 6px;}
+  .qwi p{font-size:13.5px; color:var(--text-muted); margin:0 0 4px;}
+  .qwi ul{margin:6px 0 10px; padding-left:18px; color:var(--text-muted); font-size:13.5px;}
+  .hard-fact{border-left:3px solid var(--orange); padding:10px 14px; background:#fff8f0; border-radius:0 8px 8px 0; font-size:13.5px; color:var(--slate-soft);}
+
+  /* stat cards */
+  .stat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  @media(max-width:640px){.stat-grid{grid-template-columns:1fr;}}
+  .stat-card{border:1px solid var(--border); border-radius:14px; padding:20px; text-align:center; opacity:0;}
+  .stat-card.in .stat-num{ animation:none; }
+  .stat-card.fade-left.in{ animation:fadeInLeft .55s ease forwards; }
+  .stat-card.fade-up.in{ animation:fadeInUp .55s ease forwards; }
+  .stat-card.fade-right.in{ animation:fadeInRight .55s ease forwards; }
+  @keyframes fadeInLeft{ from{opacity:0; transform:translateX(-24px);} to{opacity:1; transform:translateX(0);} }
+  @keyframes fadeInUp{ from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);} }
+  @keyframes fadeInRight{ from{opacity:0; transform:translateX(24px);} to{opacity:1; transform:translateX(0);} }
+  .stat-num{font-family:'Montserrat',sans-serif; font-size:30px; font-weight:800; color:var(--green-text);}
+  .stat-label{font-size:12.5px; color:var(--text-muted); margin-top:4px;}
+
+  /* accordion */
+  .accordion-item{border:1px solid var(--border); border-radius:12px; margin-bottom:10px; overflow:hidden; transition:box-shadow .2s, border-color .2s;}
+  .accordion-item:hover, .accordion-item:focus-within{ border-color:var(--turquoise-border); }
+  .accordion-item[open]{ box-shadow:0 10px 22px -8px rgba(47,208,160,0.4); }
+  .accordion-item summary{list-style:none; cursor:pointer; padding:14px 16px; display:flex; align-items:center; gap:12px; font-family:'Montserrat',sans-serif; font-weight:700; color:var(--slate); font-size:14px;}
+  .accordion-item summary::-webkit-details-marker{display:none;}
+  .num-chip{width:26px; height:26px; border-radius:7px; background:var(--green-dark); color:#fff; font-family:'Montserrat',sans-serif; font-size:12px; display:flex; align-items:center; justify-content:center; flex:none;}
+  .chev{margin-left:auto; transition:transform .2s;}
+  .accordion-item[open] .chev{ transform:rotate(180deg); }
+  .accordion-item:hover .chev, .accordion-item:focus-within .chev{ animation:bounceY .6s ease infinite; }
+  @keyframes bounceY{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(3px);} }
+  .accordion-item[open] .chev:hover{ animation:none; }
+  .accordion-item .body{padding:0 16px 16px 54px; color:var(--text-muted); font-size:13.5px; text-align:left;}
+  .sub-list{margin:8px 0 0; padding-left:16px;} .sub-list li{margin-bottom:4px;}
+
+  /* beneficios */
+  .benef-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media(max-width:640px){.benef-grid{grid-template-columns:1fr;}}
+  .benef-card{
+    border:1px solid var(--border); border-radius:12px; padding:14px; font-size:13.5px; color:var(--text-muted);
+    display:flex; gap:10px; align-items:flex-start; transition:box-shadow .2s, border-color .2s; cursor:default;
+  }
+  .benef-card:hover, .benef-card:focus-within{ border-color:var(--turquoise-border); }
+  .benef-card:active, .benef-card.selected{ box-shadow:0 10px 22px -8px rgba(47,208,160,0.4); }
+  .benef-dot{width:8px; height:8px; border-radius:50%; background:var(--orange); margin-top:6px; flex:none;}
+
+  /* stepper */
+  .stepper{position:relative; padding-left:32px;}
+  .stepper::before{content:"";position:absolute; left:12px; top:6px; bottom:6px; width:2px; background:var(--border);}
+  .step{position:relative; padding-bottom:22px;} .step:last-child{padding-bottom:0;}
+  .step-dot{position:absolute; left:-32px; top:0; width:26px; height:26px; border-radius:50%; background:#fff; border:2px solid var(--green-dark); color:var(--green-dark); font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; display:flex; align-items:center; justify-content:center;}
+  .step h4{font-size:14px; color:var(--slate); margin-bottom:3px; text-align:left;} .step p{margin:0 0 6px; color:var(--text-muted); font-size:13px; text-align:left;}
+  .step-link{display:inline-flex; align-items:center; gap:5px; font-size:12.5px; font-weight:600; color:var(--blue-btn); text-decoration:none; transition:transform .15s;}
+  .step-link:hover .arrow, .step-link:focus-visible .arrow{ animation:bounceX .6s ease infinite; display:inline-block;}
+
+  /* resource library */
+  .res-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  @media(max-width:760px){.res-grid{grid-template-columns:1fr;}}
+  .res-card{
+    border:1px solid var(--border); border-radius:12px; padding:14px; opacity:0; transform:translateY(16px);
+    transition:opacity .5s ease, transform .5s ease, box-shadow .2s, border-color .2s;
+  }
+  .res-card.in{ opacity:1; transform:translateY(0); }
+  .res-card:hover, .res-card:focus-within{ border-color:var(--turquoise-border); box-shadow:0 10px 22px -8px rgba(47,208,160,0.4); }
+  .res-icon{width:36px; height:36px; border-radius:9px; background:var(--green-soft); color:var(--green-dark); display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; font-family:'Montserrat',sans-serif; margin-bottom:8px;}
+  .res-card h4{font-size:13.5px; margin:0 0 3px; color:var(--slate); text-align:left;}
+  .res-card .meta{font-size:11.5px; color:var(--text-muted); margin:0 0 8px; text-align:left;}
+  .res-link{font-size:12px; font-weight:700; color:var(--blue-btn); text-decoration:none; display:inline-flex; align-items:center; gap:4px;}
+  .res-link .arrow{transition:transform .15s;}
+  .res-link:hover .arrow, .res-link:focus-visible .arrow{ animation:bounceX .6s ease infinite; }
+  .format-chips{display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;}
+  .format-chip-wrap{ position:relative; }
+  .format-chip{
+    font-size:10.5px; font-weight:600; color:var(--slate-soft); background:#eef1f2; padding:3px 6px 3px 8px;
+    border-radius:20px; border:1px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:4px;
+    transition:border-color .2s, background .2s;
+  }
+  .format-chip .dl{ font-size:10px; }
+  .format-chip-wrap:hover .format-chip, .format-chip-wrap:focus-within .format-chip{ border-color:var(--turquoise-border); background:var(--green-soft); }
+  .format-tooltip{
+    position:absolute; bottom:calc(100% + 8px); left:50%; transform:translateX(-50%) translateY(4px);
+    width:190px; background:var(--slate); color:#fff; font-size:11px; padding:8px 10px; border-radius:8px;
+    opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:10; text-align:left; line-height:1.4;
+  }
+  .format-tooltip::after{ content:""; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:var(--slate); }
+  .format-chip-wrap:hover .format-tooltip, .format-chip-wrap:focus-within .format-tooltip{
+    opacity:1; transform:translateX(-50%) translateY(0);
+  }
+
+  /* directorio */
+  .directorio-card{
+    border:1.5px solid var(--border); border-radius:14px; padding:18px; display:flex; align-items:center;
+    justify-content:space-between; gap:16px; flex-wrap:wrap; transition:border-color .2s, box-shadow .2s;
+  }
+  .directorio-card:hover, .directorio-card:focus-within{ border-color:var(--turquoise-border); box-shadow:0 10px 22px -8px rgba(47,208,160,0.4); }
+  .directorio-card p{margin:0; font-size:13.5px; color:var(--text-muted); max-width:52ch; text-align:left;}
+  .directorio-btn{background:var(--slate); color:#fff; border:none; border-radius:9px; padding:10px 16px; font-weight:600; font-size:13.5px; cursor:pointer; white-space:nowrap; transition:background .25s;}
+  .directorio-btn:hover, .directorio-btn:focus-visible{ background:var(--blue-btn); outline:none; box-shadow:0 6px 16px -4px rgba(51,80,126,0.5); }
+  .directorio-btn .arrow{ display:inline-block; }
+  .directorio-btn:focus-visible .arrow{ animation:bounceX .6s ease infinite; }
+  .directorio-btn:hover .arrow{ animation:bounceX .6s ease infinite; }
+
+  /* carousel */
+  .carousel-wrap{ overflow:hidden; position:relative; margin-top:6px; padding:14px 0; background:#fafbfb; border-radius:14px; border:1px solid var(--border); }
+  .carousel-track{ display:flex; gap:32px; width:max-content; animation:scrollLeft 26s linear infinite; align-items:center; }
+  .carousel-wrap:hover .carousel-track, .carousel-wrap:focus-within .carousel-track{ animation-play-state:paused; }
+  @keyframes scrollLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .ally-logo{
+    display:flex; align-items:center; justify-content:center; white-space:nowrap;
+    font-family:'Montserrat',sans-serif; font-size:14px; font-weight:800; color:#fff; letter-spacing:0.3px;
+    padding:12px 22px; border-radius:10px; flex:none; filter:grayscale(45%); opacity:0.88;
+    transition:filter .2s, opacity .2s, transform .2s;
+  }
+  .ally-logo:hover{ filter:grayscale(0%); opacity:1; transform:translateY(-2px); }
+
+  footer{background:var(--slate); color:#cfd8dc; padding:20px 0; margin-top:10px; font-size:12.5px; text-align:center;}
+
+  /* modal */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(38,50,56,0.55); display:none; align-items:center; justify-content:center; z-index:50; padding:20px;
+  }
+  .modal-overlay.open{ display:flex; }
+  .modal-box{ background:#fff; border-radius:16px; padding:26px; max-width:380px; text-align:center; box-shadow:0 20px 50px rgba(0,0,0,0.25); }
+  .modal-box .ico{ font-size:30px; margin-bottom:10px; }
+  .modal-box h3{ font-size:17px; margin-bottom:8px; }
+  .modal-box p{ font-size:13.5px; color:var(--text-muted); margin-bottom:18px; }
+  .modal-actions{ display:flex; gap:10px; justify-content:center; }
+  .modal-btn{ padding:10px 18px; border-radius:9px; font-weight:600; font-size:13.5px; cursor:pointer; border:none; }
+  .modal-btn.continue{ background:var(--orange); color:#fff; transition:background .2s; }
+  .modal-btn.continue:hover, .modal-btn.continue:focus-visible{ background:var(--blue-btn); outline:none; }
+  .modal-btn.cancel{ background:#eef1f2; color:var(--slate-soft); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    .stat-card, .res-card{ opacity:1 !important; transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">MOCKUP v3 — Alta fidelidad, con interacciones y accesibilidad AAA</div>
+
+<div class="wrap">
+  <header class="site">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <span class="brand-name">Contraloría del Estado · Gobierno de Jalisco</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-copy">
+      <h1>Reconocemos a las empresas que construyen integridad, no solo la declaran.</h1>
+      <p>Obtén el Distintivo Pro Integridad y forma parte del directorio de empresas comprometidas con la ética y la prevención de la corrupción en Jalisco.</p>
+    </div>
+    <div class="hero-mark">
+      <img src="assets/icons/Pro Integridad Empresas.png" alt="Distintivo Pro Integridad Empresas">
+    </div>
+  </div>
+
+  <div class="cta-row">
+    <div class="cta-card" tabindex="0">
+      <span class="cta-tag">🏢 Empresa</span>
+      <h3>Presenta tu registro como empresa</h3>
+      <p>Solicita el Distintivo si representas una organización con RFC empresarial.</p>
+      <button class="cta-btn" onclick="openModal('Formulario de registro — Empresa')">Ir a solicitud <span class="arrow">↗</span></button>
+    </div>
+    <div class="cta-card" tabindex="0">
+      <span class="cta-tag">👤 Persona física</span>
+      <h3>Presenta tu registro como persona física</h3>
+      <p>Solicita el Distintivo si operas bajo actividad empresarial.</p>
+      <button class="cta-btn" onclick="openModal('Formulario de registro — Persona física')">Ir a solicitud <span class="arrow">↗</span></button>
+    </div>
+  </div>
+
+  <!-- QUÉ ES -->
+  <section>
+    <div class="fill-bar"><i></i></div>
+    <div class="qwi">
+      <p style="font-weight:600; color:var(--slate-soft); font-size:14.5px;">Pro Integridad Empresas es el programa del Gobierno de Jalisco que reconoce, mediante el Distintivo Pro Integridad, a las empresas y organizaciones que acreditan contar con una política de integridad corporativa.</p>
+
+      <h2 style="margin-top:20px; font-size:19px;">Pero… ¿Qué es el Distintivo Pro Integridad y por qué importa?</h2>
+      <p>El Distintivo Pro Integridad es una acreditación otorgada conjuntamente por la Coordinación General Estratégica de Crecimiento y Desarrollo Económico y la Contraloría del Estado, que reconoce a empresas y organizaciones con una política de integridad corporativa alineada al artículo 25 de la Ley General de Responsabilidades Administrativas.</p>
+      <p>Este distintivo busca promover que el sector empresarial desarrolle e implemente controles internos que garanticen una cultura ética y prevengan hechos de corrupción, en corresponsabilidad con el sector público.</p>
+
+      <h4>¿Por qué importa a nivel empresarial?</h4>
+      <ul>
+        <li>Te vuelve más competitiv@</li>
+        <li>Te ayuda a detectar y prevenir riesgos de corrupción</li>
+        <li>Atrae nuevos colaboradores y clientes</li>
+        <li>Ayuda a retener talento</li>
+        <li>Facilita el acceso a nuevos mercados</li>
+      </ul>
+
+      <h4>¿Por qué importa a nivel económico?</h4>
+      <div class="hard-fact">Sin políticas de integridad y mecanismos anticorrupción, las empresas difícilmente pueden acceder a las cadenas productivas de empresas multinacionales.</div>
+    </div>
+  </section>
+
+  <!-- IMPACTO EN CIFRAS -->
+  <section id="stats-section">
+    <div class="fill-bar"><i></i></div>
+    <div class="section-head"><h2>Impacto en cifras</h2></div>
+    <div class="stat-grid">
+      <div class="stat-card fade-left" data-target="565"><div class="stat-num">0</div><div class="stat-label">Acreditaciones vigentes</div></div>
+      <div class="stat-card fade-up" data-target="8"><div class="stat-num">0</div><div class="stat-label">Municipios visitados (Ruta Pro Integridad)</div></div>
+      <div class="stat-card fade-right" data-target="7"><div class="stat-num">0</div><div class="stat-label">Cámaras y organizaciones aliadas</div></div>
+    </div>
+  </section>
+
+  <!-- LOS 7 ELEMENTOS -->
+  <section>
+    <div class="fill-bar"><i></i></div>
+    <div class="section-head"><h2>Los 7 elementos de la política de integridad</h2></div>
+    <details class="accordion-item" open>
+      <summary><span class="num-chip">1</span>Manual de organización y procedimientos<span class="chev">⌄</span></summary>
+      <div class="body">Delimita funciones y cadenas de mando.<ul class="sub-list"><li>Organigrama y funciones</li><li>Procesos específicos</li><li>Mapeo de áreas vulnerables</li></ul></div>
+    </details>
+    <details class="accordion-item">
+      <summary><span class="num-chip">2</span>Código de conducta<span class="chev">⌄</span></summary>
+      <div class="body">Pautas de comportamiento ético.<ul class="sub-list"><li>Misión, visión y valores</li><li>Mecanismos anticorrupción</li><li>Conductas con terceros</li><li>Constancias de cumplimiento</li></ul></div>
+    </details>
+    <details class="accordion-item">
+      <summary><span class="num-chip">3</span>Sistemas de control, vigilancia y auditoría<span class="chev">⌄</span></summary>
+      <div class="body">Controles internos periódicos.<ul class="sub-list"><li>Identificación de procesos</li><li>Mapa y matriz de riesgos</li><li>Plan de acción</li><li>Programa de auditoría</li></ul></div>
+    </details>
+    <details class="accordion-item">
+      <summary><span class="num-chip">4</span>Sistemas de denuncia<span class="chev">⌄</span></summary>
+      <div class="body">Canal confidencial de reporte.<ul class="sub-list"><li>Mecanismo de recepción</li><li>Proceso de denuncia</li><li>Estrategia de respuesta</li><li>Medidas disciplinarias</li></ul></div>
+    </details>
+    <details class="accordion-item">
+      <summary><span class="num-chip">5</span>Sistemas de entrenamiento y capacitación<span class="chev">⌄</span></summary>
+      <div class="body">Formación continua del personal.<ul class="sub-list"><li>Programa vigente</li><li>Evidencia de la última capacitación</li></ul></div>
+    </details>
+    <details class="accordion-item">
+      <summary><span class="num-chip">6</span>Política de recursos humanos<span class="chev">⌄</span></summary>
+      <div class="body">Prevención de riesgos desde la contratación.<ul class="sub-list"><li>Definición de puestos</li><li>Identificación de riesgos por puesto</li><li>Cláusulas anticorrupción en contratos</li></ul></div>
+    </details>
+    <details class="accordion-item">
+      <summary><span class="num-chip">7</span>Mecanismos de transparencia y publicidad<span class="chev">⌄</span></summary>
+      <div class="body">Difusión abierta de información relevante.<ul class="sub-list"><li>Estrategias de difusión</li><li>Constancia de publicación</li></ul></div>
+    </details>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section>
+    <div class="fill-bar"><i></i></div>
+    <div class="section-head"><h2>Beneficios de la acreditación</h2></div>
+    <div class="benef-grid">
+      <div class="benef-card" tabindex="0"><span class="benef-dot"></span>Valor agregado en el RUPC y Registro Estatal de Prestadores Inmobiliarios</div>
+      <div class="benef-card" tabindex="0"><span class="benef-dot"></span>Criterio de desempate en licitaciones y contrataciones</div>
+      <div class="benef-card" tabindex="0"><span class="benef-dot"></span>Confianza entre colaboradores y proveedores al contar con mecanismos anticorrupción</div>
+      <div class="benef-card" tabindex="0"><span class="benef-dot"></span>Desarrollo Integral al pocisionar la empresa como mejor opción para hacer negocios</div>
+      <div class="benef-card" tabindex="0"><span class="benef-dot"></span>Aspecto diferenciador al ser distinguida como organización integra</div>
+      <div class="benef-card" tabindex="0"><span class="benef-dot"></span>Garantía en la constante capacitación de empleados, así como máximos estándares de contratación</div>
+    </div>
+    <br>
+    <div class="hard-fact"><b>Nota: La Vigencia del Distintivo Pro Integridad será de un año a partir de la fecha de emisión</b></div>
+  </section>
+
+  <!-- STEPPER -->
+  <section>
+    <div class="fill-bar"><i></i></div>
+    <div class="section-head"><h2>¿Cómo obtener el Distintivo?</h2></div>
+    <div class="stepper">
+      <div class="step">
+        <div class="step-dot">1</div>
+        <h4>Consulta la convocatoria y el manual</h4>
+        <p>Revisa los requisitos vigentes para tu tipo de organización.</p>
+        <a class="step-link" href="#" onclick="event.preventDefault(); openModal('Convocatoria vigente')">Ver convocatoria <span class="arrow">↗</span></a>
+      </div>
+      <div class="step">
+        <div class="step-dot">2</div>
+        <h4>Presenta tu solicitud</h4>
+        <p>Registra tus datos y adjunta la documentación requerida.</p>
+        <a class="step-link" href="#" onclick="event.preventDefault(); openModal('Formulario de solicitud')">Ir a solicitud <span class="arrow">↗</span></a>
+      </div>
+      <div class="step">
+        <div class="step-dot">3</div>
+        <h4>Verificación</h4>
+        <p>La Contraloría revisa tu política de integridad y, en su caso, solicita adecuaciones.</p>
+      </div>
+      <div class="step">
+        <div class="step-dot">4</div>
+        <h4>Entrega del Distintivo</h4>
+        <p>Recibes tu acreditación, vigente por un año.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBLIOTECA DE RECURSOS -->
+  <section>
+    <div class="fill-bar"><i></i></div>
+    <div class="section-head"><h2>Biblioteca de recursos</h2></div>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="res-icon">PDF</div>
+        <h4>Manual del Distintivo</h4>
+        <p class="meta">Documento PDF · 1.2 MB · Incluye 9 formatos descargables</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Manual del Distintivo (PDF)')">Ver documento <span class="arrow">↗</span></a>
+        <div class="format-chips">
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.1 — Manual de organización')">F.1 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Plantilla para elaborar tu organigrama, funciones y mapeo de áreas vulnerables.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.2 — Código de conducta')">F.2 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Plantilla para definir misión, visión, valores y conductas esperadas con terceros.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.3 — Control, vigilancia y auditoría')">F.3 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Plantilla de mapa de riesgos, matriz de riesgos y programa de auditoría.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.4 — Sistemas de denuncia')">F.4 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Plantilla del mecanismo de recepción de denuncias y su proceso de atención.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.5 — Entrenamiento y capacitación')">F.5 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Plantilla del programa de capacitación y su evidencia de cumplimiento.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.6 — Recursos humanos')">F.6 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Plantilla para definición de puestos e identificación de riesgos por puesto.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.7 — Transparencia y publicidad')">F.7 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Plantilla de estrategia de difusión y constancia de publicación.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.8 — Modelo general')">F.8 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Modelo general integrador de toda la política de integridad.</div>
+          </div>
+          <div class="format-chip-wrap" tabindex="0">
+            <button class="format-chip" onclick="openModal('Formato F.9 — Ejemplos gráficos')">F.9 <span class="dl">⬇</span></button>
+            <div class="format-tooltip">Muestras visuales de referencia para cada elemento.</div>
+          </div>
+        </div>
+      </div>
+      <div class="res-card">
+        <div class="res-icon">PDF</div>
+        <h4>Acuerdo Legislativo Promoción Distintivo ProIntegridad</h4>
+        <p class="meta">Documento PDF · 320 KB · Acuerdo del Congreso de Jalisco</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Acuerdo Legislativo Promoción Distintivo ProIntegridad (PDF)')">Ver documento <span class="arrow">↗</span></a>
+      </div>
+      <div class="res-card">
+        <div class="res-icon">🖼</div>
+        <h4>Fotografías Sesión CCM-E Ruta Municipal Pro Integridad</h4>
+        <p class="meta">Galería de imágenes · 8.4 MB</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Fotografías Sesión CCM-E Ruta Municipal Pro Integridad')">Ver galería <span class="arrow">↗</span></a>
+      </div>
+      <div class="res-card">
+        <div class="res-icon">PDF</div>
+        <h4>Convocatoria 6ª edición</h4>
+        <p class="meta">Documento PDF · 640 KB · Bases completas de participación</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Convocatoria 6ª edición (PDF)')">Ver documento <span class="arrow">↗</span></a>
+      </div>
+      <div class="res-card">
+        <div class="res-icon">▶</div>
+        <h4>Video: Ruta Municipal Pro Integridad</h4>
+        <p class="meta">Video · 4 min</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Video Ruta Municipal Pro Integridad')">Ver video <span class="arrow">↗</span></a>
+      </div>
+      <div class="res-card">
+        <div class="res-icon">🗓</div>
+        <h4>Calendario de sesiones y talleres</h4>
+        <p class="meta">Documento PDF · 180 KB · Fechas 6ª edición</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Calendario de sesiones (PDF)')">Ver documento <span class="arrow">↗</span></a>
+      </div>
+      <div class="res-card">
+        <div class="res-icon">📄</div>
+        <h4>Reglas de uso del Distintivo</h4>
+        <p class="meta">Documento PDF · 210 KB · Para empresas ya acreditadas</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Reglas de uso del Distintivo (PDF)')">Descargar <span class="arrow">↗</span></a>
+      </div>
+      <div class="res-card">
+        <div class="res-icon">PDF</div>
+        <h4>Libro Blanco Pro Integridad</h4>
+        <p class="meta">Documento PDF · 2.1 MB · Informe histórico del programa</p>
+        <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Libro Blanco Pro Integridad (PDF)')">Descargar <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTORIO -->
+  <section>
+    <div class="fill-bar"><i></i></div>
+    <div class="directorio-card" tabindex="0">
+      <p><strong>Directorio de Empresas Pro Integridad.</strong> Consulta qué empresas ya cuentan con el Distintivo y vincúlate con ellas.</p>
+      <button class="directorio-btn" onclick="openModal('Directorio de Empresas Pro Integridad')">Ver directorio <span class="arrow">↗</span></button>
+    </div>
+  </section>
+
+  <!-- ALIADOS (carrusel) -->
+  <section>
+    <div class="fill-bar"><i></i></div>
+    <div class="section-head"><h2 style="font-size:15px; color:var(--text-muted); font-weight:600;">Con el respaldo de:</h2></div>
+    <div class="carousel-wrap" tabindex="0" role="region" aria-label="Organizaciones aliadas del programa">
+      <div class="carousel-track" id="carousel-track">
+        <div class="ally-logo" style="background:#1a5fb4;">CANACO</div>
+        <div class="ally-logo" style="background:#2E8B67;">CCIJ</div>
+        <div class="ally-logo" style="background:#FF8800;">CMIC</div>
+        <div class="ally-logo" style="background:#37474F;">COPARMEX</div>
+        <div class="ally-logo" style="background:#7c6bc4;">CANACAR</div>
+        <div class="ally-logo" style="background:#1f9c78;">CNIT</div>
+        <div class="ally-logo" style="background:#3a5998;">CIAJ</div>
+        <div class="ally-logo" style="background:#e67a00;">CANAIVE</div>
+        <div class="ally-logo" style="background:#455a64;">CANAINMA</div>
+        <div class="ally-logo" style="background:#1a5fb4;">CCJEJ</div>
+        <div class="ally-logo" style="background:#2E8B67;">COMCE</div>
+        <div class="ally-logo" style="background:#FF8800;">CDAAJ</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>Contraloría del Estado de Jalisco · Mockup conceptual — Clio Anahi Aguayo Salgado</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <div class="ico">↗</div>
+    <h3>Vas a salir de este sitio</h3>
+    <p id="modal-text">Este enlace te llevará a un recurso externo.</p>
+    <div class="modal-actions">
+      <button class="modal-btn cancel" onclick="closeModal()">Cancelar</button>
+      <button class="modal-btn continue" onclick="closeModal()">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Duplicate carousel content for seamless infinite loop
+const track = document.getElementById('carousel-track');
+track.innerHTML += track.innerHTML;
+
+// Modal
+function openModal(label){
+  document.getElementById('modal-text').textContent = 'Este enlace te llevará a: "' + label + '", fuera de esta página.';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal(){ document.getElementById('modal-overlay').classList.remove('open'); }
+
+// Reduced motion check
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Stat cards staggered animation + count-up
+const statCards = document.querySelectorAll('.stat-card');
+let statsPlayed = false;
+function animateCount(el, target, duration){
+  if(reduceMotion){ el.textContent = target; return; }
+  let start = 0; const startTime = performance.now();
+  function tick(now){
+    const progress = Math.min((now - startTime) / duration, 1);
+    const value = Math.floor(progress * target);
+    el.textContent = value;
+    if(progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+function playStats(){
+  if(statsPlayed) return; statsPlayed = true;
+  statCards.forEach((card, i) => {
+    setTimeout(() => {
+      card.classList.add('in');
+      const numEl = card.querySelector('.stat-num');
+      const target = parseInt(card.dataset.target, 10);
+      setTimeout(() => animateCount(numEl, target, 900), reduceMotion ? 0 : 550);
+    }, reduceMotion ? 0 : i * 650);
+  });
+}
+
+// IntersectionObserver for stats + resource cards fade-in + scroll fill bars
+const statsSection = document.getElementById('stats-section');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting && entry.target === statsSection){ playStats(); }
+  });
+}, { threshold: 0.4 });
+io.observe(statsSection);
+
+const resCards = document.querySelectorAll('.res-card');
+const resIo = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){ entry.target.classList.add('in'); resIo.unobserve(entry.target); }
+  });
+}, { threshold: 0.2 });
+resCards.forEach(c => resIo.observe(c));
+
+// Scroll-driven fill bars per section
+const sections = document.querySelectorAll('section');
+function updateFillBars(){
+  const vh = window.innerHeight;
+  sections.forEach(sec => {
+    const bar = sec.querySelector('.fill-bar i');
+    if(!bar) return;
+    const rect = sec.getBoundingClientRect();
+    let visible = Math.min(rect.bottom, vh) - Math.max(rect.top, 0);
+    visible = Math.max(0, visible);
+    const ratio = Math.min(visible / rect.height, 1);
+    bar.style.height = reduceMotion ? '100%' : (ratio * 100) + '%';
+  });
+}
+if(!reduceMotion){
+  window.addEventListener('scroll', updateFillBars, { passive:true });
+  window.addEventListener('resize', updateFillBars);
+  updateFillBars();
+} else {
+  document.querySelectorAll('.fill-bar i').forEach(b => b.style.height = '100%');
+}
+</script>
+
+</body>
+</html>
