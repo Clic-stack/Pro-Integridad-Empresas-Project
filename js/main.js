@@ -3,11 +3,18 @@ const track = document.getElementById('carousel-track');
 track.innerHTML += track.innerHTML;
 
 // Modal
-function openModal(label){
+let pendingUrl = null;
+
+function openModal(label, url){
+  pendingUrl = url || null;
   document.getElementById('modal-text').textContent = 'Este enlace te llevará a: "' + label + '", fuera de esta página.';
   document.getElementById('modal-overlay').classList.add('open');
 }
 function closeModal(){ document.getElementById('modal-overlay').classList.remove('open'); }
+function continueToLink(){
+  if(pendingUrl){ window.open(pendingUrl, '_blank', 'noopener,noreferrer'); }
+  closeModal();
+}
 
 // Reduced motion check
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
