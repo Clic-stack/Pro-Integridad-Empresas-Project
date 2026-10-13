@@ -1,6 +1,23 @@
 // Duplicate carousel content for seamless infinite loop
+/*const track = document.getElementById('carousel-track');
+track.innerHTML += track.innerHTML;*/
+
 const track = document.getElementById('carousel-track');
-track.innerHTML += track.innerHTML;
+const originals = Array.from(track.children);
+
+originals.forEach(item => {
+  const clone = item.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  clone.querySelectorAll('[tabindex]').forEach(el => el.setAttribute('tabindex', '-1'));
+  track.appendChild(clone);
+});
+
+const pauseBtn = document.querySelector('.carousel-pause');
+pauseBtn.addEventListener('click', () => {
+  const paused = track.classList.toggle('is-paused');
+  pauseBtn.setAttribute('aria-pressed', paused);
+  pauseBtn.textContent = paused ? 'Reanudar animación' : 'Pausar animación';
+});
 
 // Modal
 let pendingUrl = null;
