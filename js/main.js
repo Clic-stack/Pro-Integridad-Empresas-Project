@@ -1,3 +1,6 @@
+// Reduced motion check
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // Duplicate carousel content for seamless infinite loop
 /*const track = document.getElementById('carousel-track');
 track.innerHTML += track.innerHTML;*/
@@ -21,23 +24,41 @@ pauseBtn.addEventListener('click', () => {
 
 // Modal
 let pendingUrl = null;
+let lastFocus = null;
+const overlay = document.getElementById('modal-overlay');
 
 function openModal(label, url){
+  lastFocus = document.activeElement;
   pendingUrl = url || null;
   document.getElementById('modal-text').textContent = 'Este enlace te llevará a: "' + label + '", fuera de esta página.';
-  document.getElementById('modal-overlay').classList.add('open');
+  overlay.classList.add('open');
+  overlay.querySelector('.modal-btn.cancel').focus();
 }
-function closeModal(){ document.getElementById('modal-overlay').classList.remove('open'); }
+function closeModal(){
+  overlay.classList.remove('open');
+  if (lastFocus) lastFocus.focus();
+}
 function continueToLink(){
-  if(pendingUrl){ window.open(pendingUrl, '_blank', 'noopener,noreferrer'); }
+  if (pendingUrl) window.open(pendingUrl, '_blank', 'noopener,noreferrer');
   closeModal();
 }
 
-// Reduced motion check
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+overlay.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { closeModal(); return; }
+  if (e.key === 'Tab') {
+    const btns = overlay.querySelectorAll('button');
+    const first = btns[0], last = btns[btns.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 
 // Stat cards staggered animation + count-up
 const statCards = document.querySelectorAll('.stat-card');
+if(!reduceMotion) {
+  statCards.forEach(c => c.querySelector('.stat-num').textContent = '0');
+}
 let statsPlayed = false;
 function animateCount(el, target, duration){
   if(reduceMotion){ el.textContent = target; return; }
