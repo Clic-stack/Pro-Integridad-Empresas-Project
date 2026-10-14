@@ -519,6 +519,7 @@ summary:focus-visible {
   flex: none;
 }
 
+.benef-grid + .hard-fact { margin-top: 24px; }
 /* stepper */
 .stepper {
   position: relative; 
