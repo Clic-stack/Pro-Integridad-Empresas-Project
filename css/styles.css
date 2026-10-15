@@ -62,38 +62,6 @@ h1,h2,h3 {
   padding: 0 24px;
 }
 
-.banner {
-  background: var(--slate); 
-  color: #fff; 
-  padding: 10px 24px; 
-  font-size: 13px; 
-  text-align: center;
-}
-
-header.site {
-  padding: 26px 0 6px;
-}
-
-.brand {
-  display: flex; 
-  align-items: center; 
-  gap: 14px;
-}
-
-.brand-mark { 
-  width: 40px; 
-  height: 40px; 
-  border-radius: 10px; 
-  background: linear-gradient(135deg, var(--turquoise), var(--lavender)); 
-  flex: none;
-}
-
-.brand-name {
-  font-size: 14px; 
-  color: var(--text-muted); 
-  font-weight: 500;
-}
-
 /* progress fill bar per section */
 section {
   position: relative; 
