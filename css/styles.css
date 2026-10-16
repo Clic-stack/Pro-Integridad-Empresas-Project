@@ -468,6 +468,7 @@ summary:focus-visible {
 }
 
 .benef-grid + .hard-fact { margin-top: 24px; }
+
 /* stepper */
 .stepper {
   position: relative; 
@@ -642,6 +643,7 @@ summary:focus-visible {
   align-items: center; 
   gap: 4px;
   transition: border-color .2s, background .2s;
+  text-decoration: none;
 }
 
 .format-chip .dl { 
