@@ -26,23 +26,23 @@
         </div>
       </div>
     
-      <div class="cta-row" id="register" href="#register">
+      <div class="cta-row" id="register">
         <div class="cta-card">
           <span class="cta-tag"><span aria-hidden="true">🏢</span>Empresa</span>
           <h2>Presenta tu registro como empresa</h2>
           <p>Solicita el Distintivo si representas una organización con RFC empresarial.</p>
-          <button class="cta-btn" onclick="openModal('Formulario de registro — Empresa', 'https://forms.gle/XE8T7QEpBJ8eZMiX6')">Ir a solicitud<span class="visually-hidden"> de empresa</span><span class="arrow" aria-hidden="true">↗</span></button>
+          <button class="cta-btn" onclick="openModal('Formulario de registro para empresas', 'https://forms.gle/XE8T7QEpBJ8eZMiX6')">Ir a solicitud<span class="visually-hidden"> de empresa</span><span class="arrow" aria-hidden="true">↗</span></button>
         </div>
         <div class="cta-card">
           <span class="cta-tag"><span aria-hidden="true">👤</span>Persona física</span>
           <h2>Presenta tu registro como persona física</h2>
           <p>Solicita el Distintivo si operas bajo actividad empresarial.</p>
-          <button class="cta-btn" onclick="openModal('Formulario de registro — Persona física', ' https://forms.gle/ffHgnXQJJNAuZHAw7')">Ir a solicitud<span class="visually-hidden"> de persona física</span><span class="arrow" aria-hidden="true">↗</span></button>
+          <button class="cta-btn" onclick="openModal('Formulario de registro para persona física', 'https://forms.gle/ffHgnXQJJNAuZHAw7')">Ir a solicitud<span class="visually-hidden"> de persona física</span><span class="arrow" aria-hidden="true">↗</span></button>
         </div>
       </div>
     
       <!-- QUÉ ES -->
-      <section href="#content">
+      <section id="content">
         <div class="fill-bar"><i></i></div>
         <div class="qwi">
           <p style="font-weight:600; color:var(--slate-soft); font-size:14.5px;">Pro Integridad Empresas es el programa del Gobierno de Jalisco que reconoce, mediante el Distintivo Pro Integridad, a las empresas y organizaciones que acreditan contar con una política de integridad corporativa.</p>
@@ -66,7 +66,7 @@
       </section>
     
       <!-- IMPACTO EN CIFRAS -->
-      <section id="stats-section" href="#values">
+      <section id="stats-section">
         <div class="fill-bar"><i></i></div>
         <div class="section-head"><h2>Impacto en cifras</h2></div>
         <div class="stat-grid">
@@ -77,7 +77,7 @@
       </section>
     
       <!-- LOS 7 ELEMENTOS -->
-      <section href="#acordion">
+      <section id="accordion">
         <div class="fill-bar"><i></i></div>
         <div class="section-head"><h2>Los 7 elementos de la política de integridad</h2></div>
         <details class="accordion-item" open>
@@ -105,13 +105,13 @@
           <div class="body">Prevención de riesgos desde la contratación.<ul class="sub-list"><li>Definición de puestos</li><li>Identificación de riesgos por puesto</li><li>Cláusulas anticorrupción en contratos</li></ul></div>
         </details>
         <details class="accordion-item">
-          <summary><span class="num-chip">7</span>Mecanismos de transparencia y publicidad<span class="chev" aria-hidden="true">⌄</span></summary>
+          <summary><span class="num-chip">7</span>Mecanismos de transparencia y publicidad de intereses<span class="chev" aria-hidden="true">⌄</span></summary>
           <div class="body">Difusión abierta de información relevante.<ul class="sub-list"><li>Estrategias de difusión</li><li>Constancia de publicación</li></ul></div>
         </details>
       </section>
     
       <!-- BENEFICIOS -->
-      <section href="benefits">
+      <section id="benefits">
         <div class="fill-bar"><i></i></div>
         <div class="section-head"><h2>Beneficios de la acreditación</h2></div>
         <div class="benef-grid">
@@ -127,7 +127,7 @@
       </section>
     
       <!-- STEPPER -->
-      <section href="stepper">
+      <section id="stepper">
         <div class="fill-bar"><i></i></div>
         <div class="section-head"><h2>¿Cómo obtener el Distintivo?</h2></div>
         <div class="stepper">
@@ -135,7 +135,7 @@
             <div class="step-dot">1</div>
             <h3>Consulta la convocatoria y el manual</h3>
             <p>Revisa los requisitos vigentes para tu tipo de organización.</p>
-            <a class="step-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf" target="_blank" rel="noopener"> Ver convocatoria<span class="visually-hidden"> vigente</span> <span class="arrow" aria-hidden="true">↗</span>
+            <a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición (PDF)', this.href)"> Ver convocatoria<span class="visually-hidden"> vigente</span> <span class="arrow" aria-hidden="true">↗</span>
             </a>
           </div>
           <div class="step">
@@ -158,7 +158,7 @@
       </section>
     
       <!-- BIBLIOTECA DE RECURSOS -->
-      <section href="#library-resources">
+      <section id="library-resources">
         <div class="fill-bar"><i></i></div>
         <div class="section-head"><h2>Biblioteca de recursos</h2></div>
         <div class="res-grid">
@@ -169,35 +169,35 @@
             <a class="res-link" href="assets/docs/manual-distintivo-prointegridad/manual-politica-de-integridad.pdf" onclick="event.preventDefault(); openModal('Manual Política de Integridad (PDF)', this.href)">Ver documento<span class="visually-hidden">: Manual Política de Integridad</span> <span class="arrow" aria-hidden="true">↗</span></a>
             <div class="format-chips">
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f1-manual-de-organizacion-y-procedimientos.docx" download aria-describedby="tip-f1">F.1<span class="visually-hidden">: Manual de organización y procedimientos (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f1" role="tooltip">Plantilla para elaborar tu organigrama, funciones y mapeo de áreas vulnerables.</div>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f1-manual-de-organizacion-y-procedimientos.docx" download aria-describedby="tip-f1">Manual de organización y procedimientos<span class="visually-hidden">: Manual de organización y procedimientos (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f1" role="tooltip">Plantilla para elaborar tu organigrama, funciones, procesos específicos y mapeo de áreas vulnerables.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f2-codigo-de-conducta.docx" download aria-describedby="tip-f2">F.2<span class="visually-hidden">: Código de conducta (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f2" role="tooltip">Plantilla para definir misión, visión, valores y conductas esperadas con terceros.</div>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f2-codigo-de-conducta.docx" download aria-describedby="tip-f2">Código de conducta<span class="visually-hidden">: Código de conducta (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f2" role="tooltip">Plantilla para definir misión, visión, valores, conductas esperadas con terceros, mecanismos anticorrupción, constancias de conocimiento y cumplimiento.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f3-sistemas-de-control-vigilancia-y-auditoria.docx" download aria-describedby="tip-f3">F.3<span class="visually-hidden">: Sistemas de control, vigilancia y auditoría (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f3" role="tooltip">Plantilla de mapa de riesgos, matriz de riesgos y programa de auditoría.</div>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f3-sistemas-de-control-vigilancia-y-auditoria.docx" download aria-describedby="tip-f3">Sistemas de control, vigilancia y auditoría<span class="visually-hidden">: Sistemas de control, vigilancia y auditoría (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f3" role="tooltip">Plantilla de mapa de riesgos, matriz de riesgos, programa de auditoría, identificación de procesos y plan de acción.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f3-matriz-de-riesgos-auditoria-capacitacion.xlsx" download aria-describedby="tip-f3-xlsx">F.3 Excel<span class="visually-hidden">: Matriz de riesgos, auditoria y capacitación (Excel)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f3-matriz-de-riesgos-auditoria-capacitacion.xlsx" download aria-describedby="tip-f3-xlsx">Matriz de riesgos, auditoria y capacitación - Excel<span class="visually-hidden">: Matriz de riesgos, auditoria y capacitación (Excel)</span> <span class="dl" aria-hidden="true">⬇</span></a>
                 <div class="format-tooltip" id="tip-f3-xlsx" role="tooltip">Formatos de matriz de riesgos, programa de auditorias y programa de capacitación (Excel).</div>
                 </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f4-sistemas-de-denuncia.docx" download aria-describedby="tip-f4">F.4<span class="visually-hidden">: Sistemas de denuncia (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f4" role="tooltip">Plantilla del mecanismo de recepción de denuncias y su proceso de atención.</div>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f4-sistemas-de-denuncia.docx" download aria-describedby="tip-f4">Sistemas de denuncia<span class="visually-hidden">: Sistemas de denuncia (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f4" role="tooltip">Plantilla del mecanismo de recepción de denuncias, proceso de atención, estrategia de respuesta y medidas disciplinarias.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f5-sistemas-de-entrenamiento-y-capacitacion.docx" download aria-describedby="tip-f5">F.5<span class="visually-hidden">: Sistemas de entrenamiento y capacitación (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f5-sistemas-de-entrenamiento-y-capacitacion.docx" download aria-describedby="tip-f5">Sistemas de entrenamiento y capacitación<span class="visually-hidden">: Sistemas de entrenamiento y capacitación (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
                 <div class="format-tooltip" id="tip-f5" role="tooltip">Plantilla del programa de capacitación y su evidencia de cumplimiento.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f6-politica-de-recursos-humanos.docx" download aria-describedby="tip-f6">F.6<span class="visually-hidden">: Política de recursos humanos (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f6" role="tooltip">Plantilla para definición de puestos e identificación de riesgos por puesto.</div>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f6-politica-de-recursos-humanos.docx" download aria-describedby="tip-f6">Política de recursos humanos<span class="visually-hidden">: Política de recursos humanos (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f6" role="tooltip">Plantilla para definición de puestos, identificación de riesgos por puesto y cláusulas anticorrupción en contratos.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f7-mecanismos-de-transparencia-y-publicidad-de-intereses.docx" download aria-describedby="tip-f7">F.7<span class="visually-hidden">: Mecanismos de transparencia y publicidad de intereses (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <a class="format-chip" href="assets/docs/manual-distintivo-prointegridad/formatos-manual-politica-de-integridad/f7-mecanismos-de-transparencia-y-publicidad-de-intereses.docx" download aria-describedby="tip-f7">Mecanismos de transparencia y publicidad de intereses<span class="visually-hidden">: Mecanismos de transparencia y publicidad de intereses (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
                 <div class="format-tooltip" id="tip-f7" role="tooltip">Plantilla de estrategia de difusión y constancia de publicación.</div>
               </div>
             </div>
@@ -209,16 +209,16 @@
             <a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición', this.href)">Ver documento<span class="visually-hidden">: Convocatoria 7ª edición</span> <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
           <div class="res-card">
-            <div class="res-icon" aria-hidden="true">📄</div>
+            <div class="res-icon" aria-hidden="true">PDF</div>
             <h3>Reglas de uso del Distintivo</h3>
-            <p class="meta">Documento PDF · 210 KB · Para empresas ya acreditadas</p>
-            <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Reglas de uso del Distintivo (PDF)')">Descargar<span class="visually-hidden">: Reglas de Uso del Distintivo</span> <span class="arrow" aria-hidden="true">↗</span></a>
+            <p class="meta">Documento PDF · 542 KB · Para empresas ya acreditadas</p>
+            <a class="res-link" href="assets/docs/reglas-de-uso-distintivo.pdf" onclick="event.preventDefault(); openModal('Reglas de uso del Distintivo (PDF)', this.href)">Ver Documento<span class="visually-hidden">: Reglas de Uso del Distintivo</span> <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
           <div class="res-card">
             <div class="res-icon" aria-hidden="true">PDF</div>
             <h3>Libro Blanco Pro Integridad</h3>
-            <p class="meta">Documento PDF · 2.1 MB · Informe histórico del programa</p>
-            <a class="res-link" href="#" onclick="event.preventDefault(); openModal('Libro Blanco Pro Integridad (PDF)')">Descargar<span class="visually-hidden">: Libro Blanco Pro Integridad</span> <span class="arrow" aria-hidden="true">↗</span></a>
+            <p class="meta">Documento PDF · 3.7 MB · Informe histórico del programa</p>
+            <a class="res-link" href="assets/docs/libro-blanco-pro-integridad-v.2.pdf" onclick="event.preventDefault(); openModal('Libro Blanco Pro Integridad (PDF)', this.href)">Ver Documento<span class="visually-hidden">: Libro Blanco Pro Integridad</span> <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
           <div class="res-card">
             <div class="res-icon" aria-hidden="true">PDF</div>
@@ -227,31 +227,43 @@
             <a class="res-link" href="assets/docs/guia-oec/guia-oficial-de-etica-y-cumplimiento-oec.pdf" onclick="event.preventDefault(); openModal('Guía Oficial de Ética y Cumplimiento - OEC (PDF)', this.href)">Ver Documento<span class="visually-hidden">: Guía Oficial de Ética y Cumplimiento - OEC</span> <span class="arrow" aria-hidden="true">↗</span></a>
             <div class="format-chips">
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-di-oec-01.docx" download aria-describedby="tip-f1">F.1<span class="visually-hidden">: Acuerdo de designación interna del oficial de ética y cumplimiento (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f1" role="tooltip">Plantilla para designar internamente al oficial de ética y cumplimiento.</div>
+                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-di-oec-01.docx" download aria-describedby="tip-f-di-oec-01">F-DI-OEC-01<span class="visually-hidden">: Acuerdo de designación interna del oficial de ética y cumplimiento (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f-di-oec-01" role="tooltip">Plantilla para designar internamente al oficial de ética y cumplimiento.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-di-oec-02.docx" download aria-describedby="tip-f2">F.2<span class="visually-hidden">: Presentación OEC a la contraloría del estado (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f2" role="tooltip">Plantilla para presentar al oficial de ética y cumplimiento ante la contraloría.</div>
+                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-di-oec-02.docx" download aria-describedby="tip-f-di-oec-02">F-DI-OEC-02<span class="visually-hidden">: Presentación OEC a la contraloría del estado (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f-di-oec-02" role="tooltip">Plantilla para presentar al oficial de ética y cumplimiento ante la contraloría.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-pat-oec-01.docx" download aria-describedby="tip-f3">F.3<span class="visually-hidden">: Programa mínimo de trabajo de integridad (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f3" role="tooltip">Plantilla para identificar el estado actual de la empresa en los 7 elementos de la política de integridad.</div>
+                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-pat-oec-01.docx" download aria-describedby="tip-f-pat-oec-01">F-PAT-OEC-01<span class="visually-hidden">: Programa mínimo de trabajo de integridad (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f-pat-oec-01" role="tooltip">Plantilla para empresas en proceso de verificación, identificando el estado actual de la empresa en los 7 elementos de la política de integridad y definiendo hasta 6 acciones para el año.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-pat-oec-02.docx" download aria-describedby="tip-f4">F.4<span class="visually-hidden">: Programa de trabajo de integridad (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f4" role="tooltip">Plantilla para empresas que renuevan el distintivo.  Identifica el estado actual de la empresa en los 7 elementos de la política de integridad.</div>
+                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-pat-oec-02.docx" download aria-describedby="tip-f-pat-oec-02">F-PAT-OEC-02<span class="visually-hidden">: Programa de trabajo de integridad (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f-pat-oec-02" role="tooltip">Plantilla para empresas que renuevan el distintivo.  Identifica el estado actual de la empresa en los 7 elementos de la política de integridad.</div>
               </div>
               <div class="format-chip-wrap">
-                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-pat-oec-03.docx" download aria-describedby="tip-f5">F.5<span class="visually-hidden">: Bitácora Trimestral de actividades OEC (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
-                <div class="format-tooltip" id="tip-f5" role="tooltip">Bitácora trimestral de actividades del OEC.</div>
+                <a class="format-chip" href="assets/docs/guia-oec/formatos-oec/f-pat-oec-03.docx" download aria-describedby="tip-f-pat-oec-03">F-PAT-OEC-03<span class="visually-hidden">: Bitácora Trimestral de actividades OEC (Word)</span> <span class="dl" aria-hidden="true">⬇</span></a>
+                <div class="format-tooltip" id="tip-f-pat-oec-03" role="tooltip">Bitácora trimestral de actividades del OEC.</div>
               </div>
           </div>
+        </div>
+        <div class="res-card">
+          <div class="res-icon" aria-hidden="true">📄</div>
+          <h3>Carta Pro Integridad 7ª Edición: Empresas</h3>
+          <p class="meta">Documento Word · 20 KB · (Descripción pendiente)</p>
+          <a class="res-link" href="assets/docs/carta-pro-integridad-7ma-edicion-empresas.docx" onclick="event.preventDefault(); openModal('Carta Pro Integridad 7ª Edición: Empresas (WORD)', this.href)">Ver Documento<span class="visually-hidden">Carta Pro Integridad 7ª Edición: Empresas</span> <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="res-card">
+          <div class="res-icon" aria-hidden="true">📄</div>
+          <h3>Carta Pro Integridad 7ª Edición: Persona Física</h3>
+          <p class="meta">Documento Word · 12 KB · (Descripción pendiente)</p>
+          <a class="res-link" href="assets/docs/carta-pro-integridad-7ma-edicion-persona-fisica.docx" onclick="event.preventDefault(); openModal('Carta Pro Integridad 7ª Edición: Persona Física (WORD)', this.href)">Ver Documento<span class="visually-hidden">Carta Pro Integridad 7ª Edición: Persona Física</span> <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </section>
     
       <!-- DIRECTORIO -->
-      <section href="#directory">
+      <section id="directory">
         <div class="fill-bar"><i></i></div>
         <div class="directorio-card">
           <p><strong>Directorio de Empresas Pro Integridad.</strong> Consulta qué empresas ya cuentan con el Distintivo y vincúlate con ellas.</p>
@@ -260,7 +272,7 @@
       </section>
     
       <!-- ALIADOS (carrusel) -->
-      <section href="#carousel">
+      <section id="carousel">
         <div class="fill-bar"><i></i></div>
         <div class="section-head"><h2 style="font-size:15px; color:var(--text-muted); font-weight:600;">Con el respaldo de:</h2></div>
         <button class="carousel-pause" type="button" aria-pressed="false">Pausar animación</button>
@@ -318,7 +330,7 @@
   <!-- Consulta convocatoria -->
    <div class="footer-cta">
     <div class="footer-cta-inner">
-      <p class="footer-cta-text">¿Tú empresa está lista para obtener el Distintivo Pro Integridad?</p>
+      <p class="footer-cta-text">¿Tu empresa está lista para obtener el Distintivo Pro Integridad?</p>
       <a class="footer-cta-btn" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf" target="_blank" rel="noopener">Consulta la convocatoria<span class="visually-hidden"> (PDF, se abre en nueva pestaña)</span> <span aria-hidden="true">↗</span></a>
     </div>
    </div>
@@ -329,33 +341,33 @@
         <p class="footer-title">Contraloría del Estado de Jalisco</p>
         <p class="footer-text">Programa Pro Integridad Empresas. Reconocemos a las empresas que construyen integridad, no solo la declaran.</p>
       </div>
+      <nav class="footer-col" aria-label="Enlaces del programa">
+        <p class="footer-title">En esta página</p>
+        <ul class="footer-list">
+          <li><a href="#contenido">Inicio</a></li>
+          <li><a href="#register">Registro</a></li>
+          <li><a href="#content">Contenido</a></li>
+          <li><a href="#stats-section">Impacto en cifras</a></li>
+          <li><a href="#acordion">Elementos de la política de integridad</a></li>
+          <li><a href="#benefits">Beneficios</a></li>
+          <li><a href="#stepper">¿Como obtener el distintivo?</a></li>
+          <li><a href="#library-resources">Biblioteca de recursos</a></li>
+          <li><a href="#directory">Directorio de empresas</a></li>
+          <li><a href="#carousel">Aliados</a></li>
+        </ul>
+      </nav>
+  
+      <div class="footer-col">
+        <p class="footer-title">Contacto</p>
+        <ul class="footer-list">
+          <li>[Dirección oficial]</li>
+          <li>[Teléfono oficial]</li>
+          <li>[Correo oficial]</li>
+          <li>[Horario de atención]</li>
+        </ul>
+      </div>
     </div>
 
-    <nav class="footer-col" aria-label="Enlaces del programa">
-      <p class="footer-title">En esta página</p>
-      <ul class="footer-list">
-        <li><a href="#contenido">Inicio</a></li>
-        <li><a href="#register">Registro</a></li>
-        <li><a href="#content">Contenido</a></li>
-        <li><a href="#values">Impacto en cifras</a></li>
-        <li><a href="#acordion">Elementos de la política de integridad</a></li>
-        <li><a href="#benefits">Beneficios</a></li>
-        <li><a href="#stepper">¿Como obtener el distintivo?</a></li>
-        <li><a href="#library-resources">Biblioteca de recursos</a></li>
-        <li><a href="#directory">Directorio de empresas</a></li>
-        <li><a href="#carousel">Aliados</a></li>
-      </ul>
-    </nav>
-
-    <div class="footer-col">
-      <p class="footer-title">Contacto</p>
-      <ul class="footer-list">
-        <li>[Dirección oficial]</li>
-        <li>[Teléfono oficial]</li>
-        <li>[Correo oficial]</li>
-        <li>[Horario de atención]</li>
-      </ul>
-    </div>
 
     <!-- Legal -->
      <div class="footer-legal">
