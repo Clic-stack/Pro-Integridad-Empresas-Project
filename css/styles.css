@@ -1048,6 +1048,13 @@ summary:focus-visible {
   font-size: 0.95em;
 }
 
+.footer-icon {
+  width: 18px;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
 .site-footer a:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 3px;
