@@ -1085,6 +1085,24 @@ summary:focus-visible {
   gap: 18px;
 }
 
+/* Modal provisional para Directorio Interactivo */
+.aviso-dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 420px;
+  width: calc(100% - 32px);
+  text-align: center;
+}
+
+.aviso-dialog::backdrop { 
+  background: rgba(0, 0, 0, .5); 
+}
+
+.aviso-dialog h2 { 
+  margin-top: 0; 
+}
+
 /* modal */
 .modal-overlay{
   position: fixed; 
