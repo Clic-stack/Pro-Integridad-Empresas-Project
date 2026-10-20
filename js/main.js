@@ -161,3 +161,12 @@ if(!reduceMotion) {
 } else {
   document.querySelectorAll('.fill-bar i').forEach(b => b.style.height = '100%');
 }
+
+// Enlaces internos que abren los formatos descargables de la tarjeta destino
+document.querySelectorAll('a[data-open-formats]').forEach(link => {
+  link.addEventListener('click', () => {
+    const card = document.querySelector(link.getAttribute('href'));
+    const formats = card && card.querySelector('details.formats');
+    if (formats) formats.open = true;
+  });
+});

@@ -25,18 +25,25 @@
           <img src="assets/images/pro-integridad-empresas-logo.webp" alt="Distintivo Pro Integridad Empresas">
         </div>
       </div>
+
+      <!-- VIGENCIA DE LA CONVOCATORIA -->
+      <div class="call-notice" role="note" aria-label="Vigencia de la convocatoria">
+        <p class="title-notice"><span aria-hidden="true">📅</span>Convocatoria 7ª edición abierta</p>
+        <p class="notice-note">Las convocatorias tienen vigencia de 3 meses a partir de su publicación en el Periódico Oficial del Estado de Jalisco.</p>
+      </div>
     
+      <!-- TARJETAS DE REGISTRO -->
       <div class="cta-row" id="register">
         <div class="cta-card">
           <span class="cta-tag"><span aria-hidden="true">🏢</span>Empresa</span>
           <h2>Presenta tu registro como empresa</h2>
-          <p>Solicita el Distintivo si representas una organización con RFC empresarial.</p>
+          <p>Solicita el Distintivo si representas a una empresa, cámara, organización empresarial o asociación civil con actividad empresarial.</p>
           <button class="cta-btn" onclick="openModal('Formulario de registro para empresas', 'https://forms.gle/XE8T7QEpBJ8eZMiX6')">Ir a solicitud<span class="visually-hidden"> de empresa</span><span class="arrow" aria-hidden="true">↗</span></button>
         </div>
         <div class="cta-card">
           <span class="cta-tag"><span aria-hidden="true">👤</span>Persona física</span>
           <h2>Presenta tu registro como persona física</h2>
-          <p>Solicita el Distintivo si operas bajo actividad empresarial.</p>
+          <p>Solicita el Distintivo si estás inscrita en el RUPC o realizas actividades de intermediación inmobiliaria.</p>
           <button class="cta-btn" onclick="openModal('Formulario de registro para persona física', 'https://forms.gle/ffHgnXQJJNAuZHAw7')">Ir a solicitud<span class="visually-hidden"> de persona física</span><span class="arrow" aria-hidden="true">↗</span></button>
         </div>
       </div>
@@ -108,6 +115,12 @@
           <summary><span class="num-chip">7</span>Mecanismos de transparencia y publicidad de intereses<span class="chev" aria-hidden="true">⌄</span></summary>
           <div class="body">Difusión abierta de información relevante.<ul class="sub-list"><li>Estrategias de difusión</li><li>Constancia de publicación</li></ul></div>
         </details>
+        <div class="info-card">
+          <span class="info-tag">Opcional</span>
+          <h3>Responsabilidad Social Empresarial (RSE)</h3>
+          <p>La RSE se define como el modelo de gestión que integra las consideraciones sociales, ambientales y de gobernanza en las operaciones y estrategia de la empresa.</p>
+          <p>Incorporar elementos de RSE en la política de integridad empresarial (PIE) no es obligatorio, pero representa un valor diferencial que distingue a las empresas comprometidas con un modelo de gestión transformador, amplificando su impacto positivo en la sociedad.</p>
+        </div>
       </section>
     
       <!-- BENEFICIOS -->
@@ -123,7 +136,16 @@
           <div class="benef-card"><span class="benef-dot" aria-hidden="true"></span>Garantía en la constante capacitación de empleados, así como máximos estándares de contratación</div>
         </div>
         
-        <div class="hard-fact"><b>Nota: La vigencia del Distintivo Pro Integridad será de un año a partir de la fecha de emisión</b></div>
+        <div class="hard-fact">
+          <b>Nota: La vigencia del Distintivo Pro Integridad será de un año a partir de la fecha de emisión</b>
+          <div class="link-row">
+            <br>
+              <a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf#page=15" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición: obligaciones (PDF)', this.href)">Obligaciones de las empresas Pro Integridad<span class="arrow" aria-hidden="true">↗</span></a>
+              <br>
+              <a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf#page=16" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición: suspensión y cancelación (PDF)', this.href)">Suspensión y cancelación del Distintivo<span class="arrow" aria-hidden="true">↗</span>
+              </a>
+          </div>
+        </div>
       </section>
     
       <!-- STEPPER -->
@@ -142,18 +164,78 @@
             <div class="step-dot">2</div>
             <h3>Presenta tu solicitud</h3>
             <p>Registra tus datos y adjunta la documentación requerida.</p>
+            <details class="formats docs-req">
+              <summary>¿Qué documentos necesito?</summary>
+              <ul>
+                <li>
+                  Política de integridad con los 7 elementos.
+                  <div class="link-row"><a class="res-link" href="#card-manual" data-open-formats>Ver plantillas del Manual<span class="arrow" aria-hidden="true">↓</span></a></div>
+                </li>
+                <li>
+                  Acuerdo de designación del OEC (formatos F-DI-OEC-01 y 02).
+                  <div class="link-row"><a class="res-link" href="#card-oec" data-open-formats>Ver formatos F-DI-OEC-01 y 02<span class="arrow" aria-hidden="true">↓</span></a></div>
+                </li>
+                <li>
+                  Declaración de integridad y posibles conflictos de interés.
+                  <span class="doc-desc">Documento en el que la empresa declara, bajo protesta de decir verdad, los impedimentos o posibles conflictos de interés que pudiera tener para participar en contrataciones públicas. Por ahora no hay una plantilla disponible en la biblioteca de recursos.</span>
+                </li>
+                <li>
+                  Carta Pro Integridad 7ª edición, bajo protesta, en la que te comprometes a realizar dos auditorías a los elementos de tu política.
+                  <div class="link-row">
+                    <a class="res-link" href="#card-carta-empresas">Carta para empresas<span class="arrow" aria-hidden="true">↓</span></a>
+                    <a class="res-link" href="#card-carta-persona-fisica">Carta para persona física<span class="arrow" aria-hidden="true">↓</span></a>
+                  </div>
+                </li>
+                <li>
+                  Documentación legal del solicitante.
+                  <div class="link-row"><a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf#page=12" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición: documentación legal del solicitante (PDF)', this.href)">Consúltala en la Convocatoria<span class="arrow" aria-hidden="true">↗</span></a></div>
+                </li>
+              </ul>
+            </details>
             <a class="step-link" href="#register">Ir a solicitud<span class="visually-hidden"> de registro</span> <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
           <div class="step">
             <div class="step-dot">3</div>
             <h3>Verificación</h3>
             <p>La Contraloría revisa tu política de integridad y, en su caso, solicita adecuaciones.</p>
+            <div class="link-row">
+              <a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf#page=12" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición: procedimiento de verificación (PDF)', this.href)">Procedimiento de verificación<span class="arrow" aria-hidden="true">↗</span></a>
+              <a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf#page=14" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición: improcedencia (PDF)', this.href)">Causas de improcedencia<span class="arrow" aria-hidden="true">↗</span></a>
+            </div>
           </div>
           <div class="step">
             <div class="step-dot">4</div>
             <h3>Entrega del Distintivo</h3>
             <p>Recibes tu acreditación, vigente por un año.</p>
           </div>
+        </div>
+        <div class="hard-fact">
+          <b>Requisito:</b> se deberá contar con un Oficial de Ética y Cumplimiento (OEC) para obtener el Distintivo Pro Integridad.
+          <a class="res-link" href="#library-resources">Consulta la guía para designarlo<span class="arrow" aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+       <!-- RENOVACIÓN -->
+      <section id="renewal">
+        <div class="fill-bar"><i></i></div>
+        <div class="section-head"><h2>Renovación del Distintivo</h2></div>
+        <p class="renewal-intro">El Distintivo tiene vigencia de un año. Para renovarlo, solicítalo <strong>al menos 20 días hábiles antes de que venza</strong> y demuestra que realizaste, por lo menos, dos auditorías internas a los elementos de tu política de integridad.</p>
+        <details class="accordion-item">
+          <summary>¿Qué debo presentar para renovar?<span class="chev" aria-hidden="true">⌄</span></summary>
+          <div class="body">
+            <ul class="sub-list">
+              <li>Designación del OEC</li>
+              <li>Política de integridad empresarial (PIE) actualizada</li>
+              <li>Controles de auditoría</li>
+              <li>Informe de resultados de auditoría</li>
+              <li>Informe de resultados del programa de capacitación</li>
+              <li>Informe de uso del Distintivo</li>
+            </ul>
+          </div>
+        </details>
+        <div class="link-row">
+          <a class="res-link" href="assets/docs/convocatoria-distintivo-septima-edicion.pdf#page=17" onclick="event.preventDefault(); openModal('Convocatoria 7ª edición: renovación (PDF)', this.href)">Renovación del Distintivo en la Convocatoria<span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="res-link" href="assets/docs/manual-distintivo-prointegridad/manual-politica-de-integridad.pdf#page=56" onclick="event.preventDefault(); openModal('Manual Política de Integridad: controles de auditoría (PDF)', this.href)">Controles de auditoría en el Manual<span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </section>
     
@@ -273,14 +355,7 @@
         <div class="fill-bar"><i></i></div>
         <div class="directorio-card">
           <p><strong>Directorio de Empresas Pro Integridad.</strong> Consulta qué empresas ya cuentan con el Distintivo y vincúlate con ellas.</p>
-
-          <!-- Botón provisional en lo que se termina el Directorio Interactivo Pro Integridad Empresas -->
-          <button class="directorio-btn" type="button" onclick="document.getElementById('dir-aviso').showModal()">
-            Ver directorio <span class="arrow" aria-hidden="true">↗</span>
-          </button>
-          
-          <!-- Implementar este botón cuando el Directorio Interactivo Pro Integridad Empresas, este completo y funcional:
-          <button class="directorio-btn" onclick="openModal('Directorio de Empresas Pro Integridad', 'https://directorio-interactivo-pro-integridad.netlify.app')">Ver directorio <span class="arrow" aria-hidden="true">↗</span></button> -->
+          <button class="directorio-btn" onclick="openModal('Directorio de Empresas Pro Integridad', 'https://directorio-interactivo-pro-integridad.netlify.app')">Ver directorio <span class="arrow" aria-hidden="true">↗</span></button>
         </div>
       </section>
     

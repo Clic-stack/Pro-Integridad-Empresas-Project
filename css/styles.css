@@ -88,12 +88,14 @@ section {
   transition: height .1s linear;
 }
 
+/* Hero */
+
 .hero {
   display: grid; 
   grid-template-columns: 60% 40%; 
   gap: 40px; 
   align-items: center; 
-  padding: 32px 0 8px;
+  padding: 32px 0 0px;
 }
 
 .hero-copy {
@@ -126,6 +128,48 @@ section {
   object-fit: contain;
 }
 
+/* Validity of the call */
+.call-notice {
+  margin: 16px 0 0;
+  padding: 14px 18px;
+  background: var(--green-soft);
+  border: 1px solid var(--turquoise-border);
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 24px;
+}
+
+.title-notice {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: var(--green-dark);
+}
+
+.title-notice span {
+  margin-right: 6px;
+}
+
+.notice-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--text-muted);
+}
+
+.notice-note {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+/* Register */
 .cta-row {
   display: grid; 
   grid-template-columns: 1fr 1fr; 
@@ -264,6 +308,12 @@ summary:focus-visible {
   border-radius: 0 8px 8px 0; 
   font-size: 13.5px; 
   color: var(--slate-soft);
+}
+
+.hard-fact .link-row {
+  flex-direction: column;   /* un enlace debajo del otro */
+  align-items: flex-start;  /* que cada enlace mida solo lo de su texto */
+  gap: 6px;                 /* espacio entre enlaces */
 }
 
 /* stat cards */
@@ -425,6 +475,38 @@ summary:focus-visible {
   text-align: left;
 }
 
+/* tarjeta informativa (RSE) */
+.info-card {
+  margin-top: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--turquoise-border);
+  border-radius: 0 12px 12px 0;
+  background: #fafbfb;
+}
+
+.info-card h3 {
+  font-size: 14px;
+  margin: 8px 0 6px;
+}
+
+.info-card p {
+  margin: 0 0 6px;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.info-tag {
+  display: inline-block;
+  background: var(--green-soft);
+  color: var(--green-dark);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
 .sub-list{
   margin: 8px 0 0; 
   padding-left: 16px;
@@ -468,6 +550,39 @@ summary:focus-visible {
 }
 
 .benef-grid + .hard-fact { margin-top: 24px; }
+
+/* documentos requeridos (reutiliza .formats) */
+.docs-req ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.docs-req li {
+  margin-bottom: 12px;
+}
+
+.docs-req .link-row {
+  margin-top: 4px;
+}
+
+.doc-desc {
+  display: block;
+  margin-top: 4px;
+  padding: 8px 12px;
+  background: #fafbfb;
+  border-left: 3px solid var(--turquoise-border);
+  border-radius: 0 8px 8px 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+/* tarjeta de la biblioteca a la que se llegó desde un enlace */
+.res-card:target {
+  border-color: var(--turquoise-border);
+  box-shadow: 0 10px 22px -8px rgba(47,208,160,0.55);
+}
 
 /* stepper */
 .stepper {
@@ -1083,24 +1198,6 @@ summary:focus-visible {
 .footer-legal-links {
   display: flex;
   gap: 18px;
-}
-
-/* Modal provisional para Directorio Interactivo */
-.aviso-dialog {
-  border: none;
-  border-radius: 12px;
-  padding: 24px;
-  max-width: 420px;
-  width: calc(100% - 32px);
-  text-align: center;
-}
-
-.aviso-dialog::backdrop { 
-  background: rgba(0, 0, 0, .5); 
-}
-
-.aviso-dialog h2 { 
-  margin-top: 0; 
 }
 
 /* modal */
