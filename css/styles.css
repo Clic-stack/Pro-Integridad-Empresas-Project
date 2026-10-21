@@ -551,7 +551,28 @@ summary:focus-visible {
 
 .benef-grid + .hard-fact { margin-top: 24px; }
 
+.note-links {
+  list-style: none;
+  margin: 14px 0 0; 
+  padding: 0;
+  display: grid;
+  gap: 6px;           
+}
+
+.hard-fact .note-links .res-link {
+  margin-left: 0;
+}
+
 /* documentos requeridos (reutiliza .formats) */
+.docs-req .note-links {
+  margin: 4px 0 0;
+  padding: 0;
+}
+
+.docs-req .note-links li {
+  margin-bottom: 0;
+}
+
 .docs-req ul {
   margin: 8px 0 0;
   padding-left: 18px;
@@ -652,6 +673,10 @@ summary:focus-visible {
 .step-link:focus-visible .arrow{ 
   animation: bounceX .6s ease infinite; 
   display: inline-block;
+}
+
+.step .note-links {
+  margin-top: 4px;
 }
 
 /* resource library */
