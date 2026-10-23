@@ -1,4 +1,4 @@
-// Reduced motion check
+// Comprobación de movimiento reducido
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const track = document.getElementById('carousel-track');
@@ -64,7 +64,7 @@ overlay.addEventListener('keydown', e => {
 
 overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
 
-// Stat cards staggered animation + count-up
+// Animación escalonada de tarjetas de estadísticas + conteo ascendente
 const statCards = document.querySelectorAll('.stat-card');
 
 if(!reduceMotion) {
@@ -104,7 +104,7 @@ function playStats() {
   });
 }
 
-// IntersectionObserver for stats + resource cards fade-in
+// IntersectionObserver para estadísticas + desvanecimiento de las tarjetas de recursos
 const statsSection = document.getElementById('stats-section');
 const resCards = document.querySelectorAll('.res-card');
 
@@ -138,7 +138,7 @@ if ('IntersectionObserver' in window) {
   });
 }
 
-// Scroll-driven fill bars per section
+// Llenado de las barras con color, usando el efecto scroll-driven por sección
 const sections = document.querySelectorAll('section');
 
 function updateFillBars() {
