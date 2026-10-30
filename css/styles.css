@@ -4,6 +4,7 @@
   --slate-soft: #455a64; 
   --orange: #FF8800; 
   --orange-dark: #e67a00;
+  --orange-matte: #E39A52;
   --green: #2E8B67; 
   --green-text: #22795A; 
   --green-dark: #175A3F; 
@@ -221,7 +222,7 @@ section {
 
 .cta-btn{
   margin-top: auto; 
-  background: var(--orange); 
+  background: var(--orange-matte); 
   color: var(--slate); 
   border: none; 
   border-radius: 9px; 
@@ -1123,7 +1124,7 @@ summary:focus-visible {
 }
 
 .footer-cta-btn {
-  background: var(--orange);
+  background: var(--orange-matte);
   color: var(--slate);
   font-weight: 700;
   text-decoration: none;
