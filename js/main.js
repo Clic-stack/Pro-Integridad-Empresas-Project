@@ -29,7 +29,17 @@ const overlay = document.getElementById('modal-overlay');
 function openModal(label, url) {
   lastFocus = document.activeElement;
   pendingUrl = url || null;
-  document.getElementById('modal-text').textContent = 'Este enlace te llevará a: "' + label + '", fuera de esta página.';
+
+  // En celulares el visor de PDF suele ignorar #page=N: avisamos la página
+  const isTouch = window.matchMedia('(pointer: coarse) and (hover: none)').matches;
+  const pageMatch = (url || '').match(/#page=(\d+)/);
+
+  let text = 'Este enlace te llevará a: "' + label + '", fuera de esta página.';
+  if (isTouch && pageMatch) {
+    text += ' En algunos celulares el documento abre en la primera página; la información está en la página ' + pageMatch[1] + '.';
+  }
+  document.getElementById('modal-text').textContent = text;
+
   overlay.classList.add('open');
   overlay.querySelector('.modal-btn.cancel').focus();
 }
