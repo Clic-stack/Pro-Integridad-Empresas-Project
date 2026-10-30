@@ -29,7 +29,17 @@ const overlay = document.getElementById('modal-overlay');
 function openModal(label, url) {
   lastFocus = document.activeElement;
   pendingUrl = url || null;
-  document.getElementById('modal-text').textContent = 'Este enlace te llevará a: "' + label + '", fuera de esta página.';
+
+  // En celulares el visor de PDF suele ignorar #page=N: avisamos la página
+  const isTouch = window.matchMedia('(pointer: coarse) and (hover: none)').matches;
+  const pageMatch = (url || '').match(/#page=(\d+)/);
+
+  let text = 'Este enlace te llevará a: "' + label + '", fuera de esta página.';
+  if (isTouch && pageMatch) {
+    text += ' En algunos celulares el documento abre en la primera página; la información está en la página ' + pageMatch[1] + '.';
+  }
+  document.getElementById('modal-text').textContent = text;
+
   overlay.classList.add('open');
   overlay.querySelector('.modal-btn.cancel').focus();
 }
@@ -73,20 +83,20 @@ if(!reduceMotion) {
 
 let statsPlayed = false;
 
-function animateCount(el, target, duration) {
+function animateCount(el, target, duration, prefix = '') {
   if(reduceMotion) { 
-    el.textContent = target; 
+    el.textContent = prefix + target; 
     return; 
   }
   const startTime = performance.now();
   function tick(now) {
     const progress = Math.min((now - startTime) / duration, 1);
     const value = Math.floor(progress * target);
-    el.textContent = value;
+    el.textContent = prefix + value;
     if(progress < 1) {
       requestAnimationFrame(tick);
     } else {
-      el.textContent = target;
+      el.textContent = prefix + target;
     }
   }
   requestAnimationFrame(tick);
@@ -99,7 +109,8 @@ function playStats() {
       card.classList.add('in');
       const numEl = card.querySelector('.stat-num');
       const target = parseInt(card.dataset.target, 10);
-      setTimeout(() => animateCount(numEl, target, 900), reduceMotion ? 0 : 550);
+      const prefix = card.dataset.prefix || '';
+      setTimeout(() => animateCount(numEl, target, 900, prefix), reduceMotion ? 0 : 550);
     }, reduceMotion ? 0 : i * 650);
   });
 }
@@ -134,7 +145,7 @@ if ('IntersectionObserver' in window) {
   // y se dejan las cifras con su valor final.
   document.documentElement.classList.remove('js');
   statCards.forEach(c => {
-    c.querySelector('.stat-num').textContent = c.dataset.target;
+    c.querySelector('.stat-num').textContent = (c.dataset.prefix || '') + c.dataset.target;
   });
 }
 
